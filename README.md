@@ -1,16 +1,25 @@
-# app
+# Open Source Clicking Game App
 
-A new Flutter project.
+This is an open source clicking game app being developed with Flutter. The app will have scoreboards, boosts, leaderboards, and other features common to clicking games.
 
-## Getting Started
+## Status
 
-This project is a starting point for a Flutter application.
+The app is currently in the planning stage and not yet built. Contributions are not yet accepted, but feature requests are welcome.
 
-A few resources to get you started if this is your first Flutter project:
+[![Status](https://img.shields.io/badge/Status-Planning-red?style=for-the-badge)](https://shields.io/)
+[![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Scoreboards
+- Boosts
+- Leaderboards
+
+## Feature Requests
+
+If you have any ideas or suggestions for features you'd like to see in the app, please open an issue with the label "feature request". Your request will be reviewed and considered for inclusion in the app.
+
+## License
+
+This app is released under the terms of the GNU General Public License v3.0. You can find a copy of the license in the [LICENSE](LICENSE) file.
+
