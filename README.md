@@ -1,4 +1,4 @@
-# Open Source Clicking Game App
+# Open Source Clicking Game
 
 This is an open source clicking game app being developed with Flutter. The app will have scoreboards, boosts, leaderboards, and other features common to clicking games.
 
@@ -8,6 +8,7 @@ The app is currently in the planning stage and not yet built. Contributions are 
 
 [![Status](https://img.shields.io/badge/Status-Planning-red?style=for-the-badge)](https://shields.io/)
 [![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
+![Version](https://img.shields.io/badge/Version-1.0.1_(unreleased)-blue?style=for-the-badge&)
 
 ## Features
 
