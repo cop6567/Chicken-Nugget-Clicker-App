@@ -33,4 +33,8 @@ This app is released under the terms of the GNU General Public License v3.0. You
 - Run ``flutter pub get`` to install the required dependencies.
 - Run ``flutter run`` to launch the app on your connected device or emulator.
 
+NOTE: Steps to build the app may be different for you depending on the type of machine you are running on.
+
+
+
 
