@@ -1,3 +1,6 @@
+<img src='imgs/nugget.png'>
+
+
 # Open Source Clicking Game
 
 This is an open source clicking game app being developed with Flutter. The app will have scoreboards, boosts, leaderboards, and other features common to clicking games.
