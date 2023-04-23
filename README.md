@@ -4,7 +4,7 @@ This is an open source clicking game app being developed with Flutter. The app w
 
 ## Status
 
-The app is currently in the planning stage and not yet built. Contributions are not yet accepted, but feature requests are welcome.
+The app is currently in the planning stage and not yet built. Development is expected to take 2-3 weeks. Contributions are not yet accepted, but feature requests are welcome.
 
 [![Status](https://img.shields.io/badge/Status-Planning-red?style=for-the-badge)](https://shields.io/)
 [![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
