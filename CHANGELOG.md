@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## 0.1.0 [Unreleased]
 
-### Added
+### To be Added
 - Initial project setup with basic game mechanics
 - Scoreboard feature to track user score
 - Boost feature to increase clicking power
