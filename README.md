@@ -30,7 +30,7 @@ This app is released under the terms of the GNU General Public License v3.0. You
 - Clone the repository to your local machine.
 - Make sure you have the Flutter SDK installed and added to your PATH.
 - Open the project in your preferred IDE (such as Android Studio or VS Code).
-- Run flutter pub get to install the required dependencies.
-- Run flutter run to launch the app on your connected device or emulator.
+- Run ``flutter pub get`` to install the required dependencies.
+- Run ``flutter run`` to launch the app on your connected device or emulator.
 
 
