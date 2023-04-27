@@ -2,13 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## 0.1.1 [Unreleased]
+
+### Added
+- CODE_OF_CONDUCT.md file 
+
+### Changed
+- None
+
+### Fixed
+- None
+
+
+
+
+
 ## 0.1.0 [Unreleased]
 
-### To be Added
-- Initial project setup with basic game mechanics
-- Scoreboard feature to track user score
-- Boost feature to increase clicking power
-- Leaderboard feature to display top scores
+### Added
+- Initial project setup
 
 ### Changed
 - None
