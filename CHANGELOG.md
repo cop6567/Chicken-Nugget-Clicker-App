@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file in hierarchy.
 
 
 ## 0.1.1 [Unreleased] 27 April, 2023
