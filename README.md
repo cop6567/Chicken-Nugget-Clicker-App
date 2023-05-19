@@ -9,9 +9,9 @@ This is an open source clicking game app being developed with Flutter. The app w
 
 The app is currently in the planning stage and not yet built. Development is expected to take 2-3 weeks. Contributions are not yet accepted, but feature requests are welcome.
 
-[![Status](https://img.shields.io/badge/Status-Planning-red?style=for-the-badge)](https://shields.io/)
+[![Status](https://img.shields.io/badge/Status-Under_Development-red?style=for-the-badge)](https://shields.io/)
 [![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
-![Version](https://img.shields.io/badge/Version-1.0.1_(unreleased)-blue?style=for-the-badge&)
+![Version](https://img.shields.io/badge/Version-0.1.2_(unreleased)-blue?style=for-the-badge&)
 
 ## Features
 
@@ -37,6 +37,7 @@ This app is released under the terms of the GNU General Public License v3.0. You
 - Run ``flutter run`` to launch the app on your connected device or emulator.
 
 NOTE: Steps to build the app may be different for you depending on the type of machine you are running on.
+
 
 
 
