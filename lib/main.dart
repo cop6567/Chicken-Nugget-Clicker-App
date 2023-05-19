@@ -83,18 +83,3 @@ class ChickenNuggetClickerApp extends StatelessWidget {
   }
 }
 
-class Square extends StatelessWidget {
-  final double size;
-  final Color color;
-
-  Square({required this.size, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      color: color,
-    );
-  }
-}

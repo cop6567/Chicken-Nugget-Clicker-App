@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file in hierarchy.
 
+## 0.1.2 [Unreleased] 19 May, 2023.
+
+### Added
+- Main Home Screen
+
+### Changed
+- None
+
+### Fixed
+- None
+
+
 
 ## 0.1.1 [Unreleased] 27 April, 2023.
 
