@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file in hierarchy.
+All notable changes to this project will be documented in this file in hierarchy of the most recent version and date.
 
 ## 0.1.2 [Unreleased] 19 May, 2023.
 
