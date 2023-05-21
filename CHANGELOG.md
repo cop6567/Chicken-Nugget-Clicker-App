@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file in hierarchy
 ### Added
 - Chicken Nugget in the middle of the screen
 - Click Counter 
+- Pop Effect upon click
 
 ### Changed
 - Share Button to iOS share button (for now)
