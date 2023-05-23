@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file in hierarchy of the most recent version and date.
 
+
+
+
+## 0.1.6 [Unreleased] 24 May, 2023.
+
+### Added
+- Settings page
+- Icons turn white when on the respective page
+
+### Changed
+- App bar width
+
+### Fixed
+- None
+
+
 ## 0.1.4 [Unreleased] 21 May, 2023.
 
 ### Added
