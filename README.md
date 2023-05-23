@@ -12,7 +12,7 @@ The app is currently in the development stage and not yet released. Development 
 [![Status](https://img.shields.io/badge/Status-Under_Development-orange?style=for-the-badge)](https://shields.io/)
 [![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
 ![Version](https://img.shields.io/badge/Version-0.1.6_(unreleased)-blue?style=for-the-badge&)
-![FireBase](https://img.shields.io/badge/Backend-Firebase-red?style=for-the-badge&)
+![FireBase](https://img.shields.io/badge/Backend-Firebase-red?style=for-the-badge&logo=firebase)
 
 ## Features
 
