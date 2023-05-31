@@ -6,7 +6,7 @@ class SettingsPage extends StatelessWidget {
 
   Widget buildStyledRow(String text, IconData icon) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
             color: Colors.brown,
@@ -22,7 +22,7 @@ class SettingsPage extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Text(
               text,
-              style: TextStyle(fontSize: 20.0),
+              style: const TextStyle(fontSize: 20.0),
             ),
           ),
           Padding(
@@ -56,21 +56,21 @@ class SettingsPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Column(
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 50,
                 backgroundImage: AssetImage('path_to_profile_picture'),
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'John Doe',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Expanded(
             child: Align(
               alignment: Alignment.topCenter,

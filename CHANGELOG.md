@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file in hierarchy of the most recent version and date.
 
 
+## 0.2.1 [Unreleased] 31 May, 2023.
+
+### Added
+- Login Page (No functionality).
+- New sign in button on App Bar (may be changed)
+- pubspec.yaml file
+
+### Changed
+- App width due to new login button.
+
+### Fixed
+- None
+
+
+
 
 
 ## 0.1.6 [Unreleased] 24 May, 2023.

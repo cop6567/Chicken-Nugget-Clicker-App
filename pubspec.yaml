@@ -12,6 +12,13 @@ dependencies:
     sdk: flutter
   audioplayers: ^0.19.0
   cupertino_icons: ^1.0.2
+  firebase_core: ^2.13.0
+  firebase_auth: ^4.6.1
+  google_sign_in: ^6.1.2
+  sign_in_with_apple: ^4.3.0
+  cloud_firestore: ^4.7.1
+  font_awesome_flutter: <10.4.0
+
 
 dev_dependencies:
   flutter_test:
@@ -21,4 +28,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - imgs/nugget.png
+    - assets/ng1.png
+    - assets/nugget.png
