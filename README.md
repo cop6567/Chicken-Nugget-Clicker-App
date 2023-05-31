@@ -1,4 +1,4 @@
-<img src='imgs/nugget.png'>
+<img src='assets/nugget.png'>
 
 
 # Open Source Clicking Game

@@ -11,7 +11,8 @@ All notable changes to this project will be documented in this file in hierarchy
 - pubspec.yaml file
 
 ### Changed
-- App width due to new login button.
+- App Bar width due to new login button.
+- imgs/ folder to assets/
 
 ### Fixed
 - None
