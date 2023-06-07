@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file in hierarchy
 - Complete working Login Page
 - Complete working Sign Up Page (Minor Issues)
 - Firebase integration
-- New APK files for android that can be downloaded from /build/app/outputs/flutter-apk/app-release.apk (20.9MB)
+- New APK files for android that can be downloaded from /apks/apk-release.apk (20.9MB)
 
 
 ### Changed
