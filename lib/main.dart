@@ -5,17 +5,29 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'settings_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'dart:async';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const ChickenNuggetClickerApp());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+  runApp(MaterialApp(home: isLoggedIn ? const ChickenNuggetClickerApp() : const SignIn(),
+  ));
 }
 
 class ChickenNuggetClickerApp extends StatefulWidget {
   const ChickenNuggetClickerApp({Key? key}) : super(key: key);
 
-  @override
+
+
+
+@override
   _ChickenNuggetClickerAppState createState() => _ChickenNuggetClickerAppState();
 }
 
@@ -91,11 +103,11 @@ class _ChickenNuggetClickerAppState extends State<ChickenNuggetClickerApp> {
           ),
           actions: [
             IconButton(
-              icon: const Icon(Icons.login_outlined),
+              icon: const Icon(Icons.login_outlined, color: Colors.black, size: 30,),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SignIn()),
+                  MaterialPageRoute(builder: (_) => const SignIn()),
                 );
 
               }
@@ -123,7 +135,7 @@ class _ChickenNuggetClickerAppState extends State<ChickenNuggetClickerApp> {
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 40),
                               child: Image.asset(
-                                'imgs/nugget.png',
+                                'assets/nugget.png',
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -234,118 +246,487 @@ class _ChickenNuggetClickerAppState extends State<ChickenNuggetClickerApp> {
   }
 }
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
+
+  @override
+  _SignInState createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  final _formKey = GlobalKey<FormState>();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  late String _email;
+  late String _password;
+
+
+  @override
+  void initState() {
+    super.initState();
+    _email = '';
+    _password = '';
+  }
+
+  void _signInWithEmailAndPassword() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+
+      try {
+        await _auth.signInWithEmailAndPassword(
+          email: _email,
+          password: _password,
+        );
+
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('isLoggedIn', true);
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const ChickenNuggetClickerApp()),
+        );
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Sign-in Error'),
+              content: Text(e.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    }
+  }
+
+  void _goToSignUp() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => const SignUp()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow
-      ,
+      backgroundColor: Colors.yellow,
       appBar: AppBar(
-        title: const Text('Sign in'),
         backgroundColor: Colors.brown,
+        title: const Text('Sign In'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('assets/nugget.png'),
+                const SizedBox(height: 20),
+                const Text(
+                  "Welcome back!",
+                  style: TextStyle(fontSize: 30),
+                ),
+                const SizedBox(height: 30),
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) => _email = value.trim(),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: InputDecoration(
+                    hintText: 'Enter your email',
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                TextFormField(
+                  obscureText: true,
+                  onChanged: (value) => _password = value,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your password';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: InputDecoration(
+                    hintText: 'Enter your password',
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: _signInWithEmailAndPassword,
+                  child: const Row(
+                    children: [
+                      SizedBox(width: 160),
+                      Text('Sign in'),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 80),
+                const Text(
+                  'Don\'t have an account?',
+                  style: TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: _goToSignUp,
+                      child: const Text('Sign up'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+// SIGN UP PAGE BELOW
+
+
+
+
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
+
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final _formKey = GlobalKey<FormState>();
+  late String _email;
+  late String _password;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  bool isEmailVerified = false;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    // Start the timer when the widget is initialized
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      checkEmailVerificationStatus();
+    });
+  }
+
+  @override
+  void dispose() {
+    // Cancel the timer when the widget is disposed
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void checkEmailVerificationStatus() async {
+    final User? currentUser = _auth.currentUser;
+    await currentUser?.reload();
+    if (currentUser != null && currentUser.emailVerified) {
+      setState(() {
+        isEmailVerified = true;
+      });
+      _timer.cancel();
+      // Navigate to success page or perform any other actions
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const SuccessPage()),
+      );
+    }
+  }
+
+  Future<void> _signUpWithEmailAndPassword() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+
+      try {
+        final UserCredential userCredential =
+        await _auth.createUserWithEmailAndPassword(
+          email: _email,
+          password: _password,
+        );
+
+        await userCredential.user!.sendEmailVerification();
+
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return const AlertDialog(
+              title: Text('Email Verification'),
+              content: Text(
+                'A verification email has been sent to your email address. '
+                    'Please click the verification link to proceed.',
+              ),
+            );
+          },
+        );
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Sign-up Error'),
+              content: Text(e.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.yellow,
+      appBar: AppBar(
+        backgroundColor: Colors.brown,
+        title: const Text('Sign Up'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('assets/nugget.png'),
+                const SizedBox(height: 20),
+                const Text(
+                  "Welcome!",
+                  style: TextStyle(fontSize: 30),
+                ),
+                const SizedBox(height: 30),
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) => _email = value.trim(),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: InputDecoration(
+                    hintText: 'Enter your email',
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                TextFormField(
+                  obscureText: true,
+                  onChanged: (value) => _password = value,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your password';
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(color: Colors.black),
+                  decoration: InputDecoration(
+                    hintText: 'Enter your password',
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: _signUpWithEmailAndPassword,
+                  child: const Row(
+                    children: [
+                      SizedBox(width: 160),
+                      Text('Sign up'),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 80),
+                const Text(
+                  'Or Continue with...',
+                  style: TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: const Row(
+                        children: [
+                          SizedBox(
+                            height: 70,
+                            width: 20,
+                          ),
+                          Icon(
+                            Icons.apple,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                        ],
+                      ),
+                      onPressed: () {},
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.white),
+                      ),
+                      child: const Row(
+                        children: [
+                          SizedBox(
+                            height: 70,
+                            width: 20,
+                          ),
+                          Icon(
+                            FontAwesomeIcons.google,
+                            color: Colors.black,
+                            size: 40,
+                          ),
+                          SizedBox(width: 20)
+                        ],
+                      ),
+                      onPressed: () {},
+                    ),
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.blue),
+                      ),
+                      child: const Row(
+                        children: [
+                          SizedBox(
+                            height: 70,
+                            width: 20,
+                          ),
+                          Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                        ],
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const SizedBox(width: 100),
+                    const Text("Already have an account?"),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const SignIn(),
+                          ),
+                        );
+                      },
+                      child: const Text('Sign in'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+class SuccessPage extends StatelessWidget {
+  const SuccessPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final User? currentUser = FirebaseAuth.instance.currentUser;
+
+    return Scaffold(backgroundColor: Colors.yellow,
+      appBar: AppBar(
+        backgroundColor: Colors.brown,
+        title: const Text('Success!'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-
-            const Text("Let's Get You Started", style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold,),),
-            const SizedBox(height: 50,),
-
-
-            Image.asset('assets/nugget.png'),
-
-            const SizedBox(height: 40,),
-
-
-            Container(
-
-              color: Colors.black,
-              width:  360,
-              child: TextButton(onPressed:  () {},
-                  child: Row(
-                    children: const [
-                      Icon(Icons.apple, color: Colors.white,),
-                      SizedBox(width: 80),
-                      Text('Sign in with Apple', style: TextStyle(color: Colors.white),),
-
-                    ],
-                  ) ),
+            currentUser!.emailVerified
+                ? const Text(
+              'Sign up successful!',
+              style: TextStyle(fontSize: 24),
+            )
+                : const Text(
+              'Sign up successful!\n'
+                  'Please verify your email to proceed.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 24),
             ),
-            const SizedBox(height: 10,),
-
-            Container(
-
-              color: Colors.white,
-              width: 360,
-              child: TextButton(onPressed:  () {},
-                  child: Row(
-                    children: const [
-                      Icon(FontAwesomeIcons.google, color: Colors.black,),
-                      SizedBox(width: 80),
-                      Text('Sign in with Google', style: TextStyle(color: Colors.black),),
-                    ],
-                  ) ),
-            ),
-
-            const SizedBox(height: 10,),
-
-            Container(
-
-              color: Colors.blueAccent,
-              width: 360,
-              child: TextButton(onPressed:  () {},
-                  child: Row(
-                    children: const [
-                      Icon(FontAwesomeIcons.facebook, color: Colors.white,),
-                      SizedBox(width: 80),
-                      Text('Sign in with Facebook', style: TextStyle(color: Colors.white),),
-
-                    ],
-                  ) ),
-            ),
-
-            const SizedBox(height: 10,),
-
-            const Text('Psst! Login forms coming soon!', style: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold, fontSize: 10),),
-
-
-            const SizedBox(height: 120,),
-
-            Container(
-
-              color: Colors.white,
-              width: 200,
-              child: TextButton(onPressed:  () {},
-                  child: Row(
-                    children: const [
-                      Icon(FontAwesomeIcons.github, color: Colors.black,),
-                      SizedBox(width: 20),
-                      Text('Support the project', style: TextStyle(color: Colors.black),),
-
-                    ],
-                  ) ),
-            ),
-
-            SizedBox(height: 10,),
-
-
-            Container(
-
-              color: Colors.pink,
-              width: 200,
-              child: TextButton(onPressed:  () {},
-                  child: Row(
-                    children: const [
-                      Icon(Icons.coffee, color: Colors.black,),
-                      SizedBox(width: 20),
-                      Text('Buy me a coffee', style: TextStyle(color: Colors.white),),
-
-                    ],
-                  ) ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const SignIn(),
+                  ),
+                );
+              },
+              child: const Text('Go to Sign In'),
             ),
           ],
         ),
@@ -353,4 +734,3 @@ class SignIn extends StatelessWidget {
     );
   }
 }
-

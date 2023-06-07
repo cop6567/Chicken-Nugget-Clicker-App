@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file in hierarchy of the most recent version and date.
 
 
+## 0.2.4.4 [Unreleased] 7 June, 2023.
+
+### Added
+- Complete working Login Page
+- Complete working Sign Up Page (Minor Issues)
+- Firebase integration
+- New APK files for android that can be downloaded from /build/app/outputs/flutter-apk/app-release.apk (20.9MB)
+
+
+### Changed
+- added more packages to pubspec.yaml
+- Login page layout
+- Added reference login page screenshots in /assets
+
+
+### Fixed
+- Few minor issues with Firebase Authentication
+
+
+
+
 ## 0.2.1 [Unreleased] 31 May, 2023.
 
 ### Added

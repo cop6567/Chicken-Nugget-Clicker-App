@@ -58,13 +58,13 @@ class SettingsPage extends StatelessWidget {
         children: [
           const SizedBox(height: 20),
           Column(
-            children: [
-              const CircleAvatar(
+            children: const [
+              CircleAvatar(
                 radius: 50,
                 backgroundImage: AssetImage('path_to_profile_picture'),
               ),
-              const SizedBox(height: 10),
-              const Text(
+              SizedBox(height: 10),
+              Text(
                 'John Doe',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),

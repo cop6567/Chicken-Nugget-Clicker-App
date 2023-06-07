@@ -11,7 +11,7 @@ The app is currently in the development stage and not yet released. Development 
 
 [![Status](https://img.shields.io/badge/Status-Under_Development-orange?style=for-the-badge)](https://shields.io/)
 [![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
-![Version](https://img.shields.io/badge/Version-0.2.1_(unreleased)-blue?style=for-the-badge&)
+![Version](https://img.shields.io/badge/Version-0.2.4.4_(unreleased)-blue?style=for-the-badge&)
 ![FireBase](https://img.shields.io/badge/Backend-Firebase-red?style=for-the-badge&logo=firebase)
 
 ## Features
@@ -37,7 +37,7 @@ This app is released under the terms of the GNU General Public License v3.0. You
 - Run ``flutter pub get`` to install the required dependencies.
 - Run ``flutter run`` to launch the app on your connected device or emulator.
 
-- You will also have to configure Firebase for any auth.
+- You will also have to configure Firebase for any authentication.
 
 NOTE: Steps to build the app may be different for you depending on the type of machine you are running on.
 
