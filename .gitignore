@@ -48,4 +48,4 @@ app.*.map.json
 /ios/Runner/GoogleService-Info.plist
 
 # Confidential
-/analytics/keys/serviceAccountKey.json
+/analytics/keys/
