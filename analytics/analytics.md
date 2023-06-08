@@ -15,11 +15,33 @@ To obtain the service account key file, you need to follow these steps:
 
 Once you have the service account key file, you can use it to initialize the Firebase Admin SDK in your Python script as shown below.
 
-'''
+```
 import firebase_admin
 from firebase_admin import credentials
 
 
 cred = credentials.Certificate('keys/serviceAccountKey.json')
 firebase_admin.initialize_app(cred)
-'''
+
+```
+
+Or, a much safer option:
+
+```
+
+import firebase_admin
+from firebase_admin import credentials
+import os
+
+# Load service account key from environment variable
+service_account_key = os.environ.get('FIREBASE_SERVICE_ACCOUNT_KEY')
+
+# Initialize Firebase Admin SDK
+cred = credentials.Certificate(service_account_key)
+firebase_admin.initialize_app(cred)
+
+
+
+```
+
+NOTE: Never store your service account key in a public repository
