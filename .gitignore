@@ -46,3 +46,6 @@ app.*.map.json
 # Firebase configuration files
 /android/app/google-services.json
 /ios/Runner/GoogleService-Info.plist
+
+# Confidential
+analytics/keys/serviceAccountKey.json
