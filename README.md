@@ -9,10 +9,14 @@ This is an open source clicking game app being developed with Flutter. The app w
 
 The app is currently in the development stage and not yet released. Development is expected to take 2-3 months. Contributions are now accepted and feature requests are welcome.
 
-[![Status](https://img.shields.io/badge/Status-Under_Development-orange?style=for-the-badge)](https://shields.io/)
-[![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
-![Version](https://img.shields.io/badge/Version-0.2.4.4_(unreleased)-blue?style=for-the-badge&)
-![FireBase](https://img.shields.io/badge/Backend-Firebase-red?style=for-the-badge&logo=firebase)
+<div align='center'>
+
+  [![Status](https://img.shields.io/badge/Status-Under_Development-orange?style=for-the-badge)](https://shields.io/)
+  [![Made with Flutter](https://img.shields.io/badge/Made_with-Flutter-blue?style=for-the-badge&logo=flutter)](https://flutter.dev/)
+  ![Version](https://img.shields.io/badge/Version-0.2.4.4_(unreleased)-blue?style=for-the-badge&)
+  ![FireBase](https://img.shields.io/badge/Backend-Firebase-red?style=for-the-badge&logo=firebase)
+
+</div>
 
 ## Features
 
