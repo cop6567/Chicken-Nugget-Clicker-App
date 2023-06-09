@@ -6,6 +6,23 @@ All notable changes to this project will be documented in this file in hierarchy
 ## 0.2.4.4 [Unreleased] 7 June, 2023.
 
 ### Added
+- New firebase email messages
+- Firebase functions
+
+
+### Changed
+- None
+
+
+### Fixed
+- Email verification exploits
+
+
+
+
+## 0.2.4.4 [Unreleased] 7 June, 2023.
+
+### Added
 - Complete working Login Page
 - Complete working Sign Up Page (Minor Issues)
 - Firebase integration
