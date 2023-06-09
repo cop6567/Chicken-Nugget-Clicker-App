@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Email</title>
+  <style>
+
+
+    i {
+      padding-right: 10px;
+    }
+
+
+
+    /* Reset default styles */
+    body, p, h1, table {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Set a maximum width to center the content */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Header styles */
+    .header {
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
+    .header h1 {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      color: #333333;
+      margin-bottom: 10px;
+    }
+
+    /* Content styles */
+    .content {
+      padding: 20px;
+      background-color: #ffffff;
+    }
+
+    .content p, a {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    /* Button styles */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+
+      
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 4px;
+      color: #ffffff;
+      margin-right: 10px;
+    }
+
+    .button.github {
+      background-color: #000000;
+    }
+
+    .button.coffee {
+      background-color: #ff69b4;
+    }
+
+    .button.support {
+      background-color: blue;
+    }
+
+    .button img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    /* Footer styles */
+    .footer {
+      padding: 20px;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+
+    .footer p {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #888888;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<table class="container">
+  <tr>
+    <td>
+      <table class="header">
+        <tr>
+          <img src="/assets/nugget.png" alt="", style="padding-bottom: 20;">
+          <td>
+            <h1>Hello, {{username}}!</h1>
+          </td>
+        </tr>
+      </table>
+      <table class="content">
+        <tr>
+          <td>
+            <p>Welcome to Chicken Nugget Clicker, an addictive and fun game where you can satisfy your nugget cravings by clicking your way to chicken nugget glory!</p>
+            <p>Chicken Nugget Clicker will always be free and open-source, thanks to contributors like you who help improve the game and make it even more enjoyable for everyone.</p>
+            <div class="button-container">
+              <a href="mailto:ChickenNuggetClicker@example.com" class="button support">Contact Support</a>
+              <a href="https://github.com/cop6567/Chicken-Nugget-Clicker-App" class="button github">
+                <i class="fab fa-github"></i>
+                Contribute
+              </a>
+              <a href="https://buymeacoffee.com" class="button coffee">
+                <i class="fas fa-coffee"></i>
+                Buy me a Coffee
+              </a>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="footer">
+        <tr>
+          <td>
+            <p>For any inquiries or assistance, please don't hesitate to contact our support team at: </p>
+            <div style="margin-top: 10px;"><a href="mailto:ChickenNuggetClicker@example.com">ChickenNuggetClicker@gmail.com</a></div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
