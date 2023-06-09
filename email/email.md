@@ -1,0 +1,1 @@
+Ignore this folder if you do not want to set up email messages for your app.
